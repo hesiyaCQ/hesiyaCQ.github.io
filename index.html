@@ -286,39 +286,34 @@
                             <div class="card-inner">
                                 <h4 class="title">Artical share</h4>
                                 <div class="search">
-                                    <form action="/search" method="post">
+                                    <form action="javascript:void(0);" onsubmit="searchByDate()">
                                         <p>站内搜索</p>
-                                        <input type="text" name="query" class="input1" />
+                                        <input type="date" id="search-date" name="search-date" class="input1" />
                                         <input type="submit" value="搜索" class="input2">
                                     </form>
                                 </div>
-                                <ul>
-                                    
-                                    <li>
-                                        <p><a href="https://www.zhihu.com/question/622975242/answer/3321302845?utm_psn=1781440775583711232">大学的真相</a></p>
-                                        <span>2024-05-06 11:55</span>
-                                    </li>
-                                    <li>
+                                <ul id="article-list">
+                                   
+                                    <li data-date="2024-05-05">
                                         <p><a href="https://www.zhihu.com/question/653417794/answer/3472144895?utm_psn=1781440920190713857">比赛推荐</a></p>
                                         <span>2024-05-05 10:13</span>
                                     </li>
-                                    <li>
+                                    <li data-date="2024-05-04">
                                         <p><a href="https://www.zhihu.com/question/651135579/answer/3451662787?utm_psn=1781440969344708609">如何参加比赛</a></p>
                                         <span>2024-05-04 08:03</span>
                                     </li>
-                                    <li>
+                                    <li data-date="2024-05-03">
                                         <p><a href="https://zhuanlan.zhihu.com/p/685234513?utm_psn=1781441078844465152">全国大学生数学建模大赛</a></p>
                                         <span>2024-05-03 11:07</span>
                                     </li>
-                                    <li>
+                                    <li data-date="2024-05-02">
                                         <p><a href="https://www.zhihu.com/question/30180100/answer/3203323314?utm_psn=1781447912510865408">前端开发学习路线</a></p>
                                         <span>2024-05-02 10:44</span>
                                     </li>
-                                    <li>
+                                    <div class="text">想查询更多内容，请点击此处</div>
                                         <p><a href="https://www.zhihu.com">知乎入口</a></p>
-                                        <span>（友情链接）若想观看更多咨询，请点击上方红色文字</span>
-                                    </li>
-                        
+                                       
+                                    </li>				
                                 </ul>
 
                             </div>
@@ -330,9 +325,9 @@
                             <div class="card-inner">
                                 <h4 class="title">Blog share</h4>
                                 <div class="search">
-                                    <form action="/search" method="post">
+                                    <form action="javascript:void(0);" onsubmit="searchByDate()">
                                         <p>站内搜索</p>
-                                        <input type="text" name="query" class="input1" />
+                                        <input type="date" id="search-date" name="search-date" class="input1" />
                                         <input type="submit" value="搜索" class="input2" />
                                     </form>
                                 </div>
@@ -346,8 +341,13 @@
                                                 </a>                                
                                             </div>
                                         </div>
-                                        <div class="date"><strong>02</strong> <br>五月</div>
+                                        <div class="date"><strong>02</strong> <br>05</div>
                                         <div class="lower-content">
+                                         <li data-date="2024-05-02">
+                                       
+                                        <span>2024-05-05 10:13</span>
+                                    </li>
+                                         
                                             <h4><a href="blog-single.html">Let’s Talk About Design</a></h4>
                                             <div class="post-meta">by admin  /  <span>Design</span></div>
                                         </div>
