@@ -293,7 +293,10 @@
                                     </form>
                                 </div>
                                 <ul id="article-list">
-                                   
+                                    <li data-date="2024-05-06">
+                                        <p><a href="https://www.zhihu.com/question/622975242/answer/3321302845?utm_psn=1781440775583711232">大学的真相</a></p>
+                                        <span>2024-05-06 11:55</span>
+                                    </li>
                                     <li data-date="2024-05-05">
                                         <p><a href="https://www.zhihu.com/question/653417794/answer/3472144895?utm_psn=1781440920190713857">比赛推荐</a></p>
                                         <span>2024-05-05 10:13</span>
@@ -309,10 +312,6 @@
                                     <li data-date="2024-05-02">
                                         <p><a href="https://www.zhihu.com/question/30180100/answer/3203323314?utm_psn=1781447912510865408">前端开发学习路线</a></p>
                                         <span>2024-05-02 10:44</span>
-                                    </li>
-                                    <div class="text">想查询更多内容，请点击此处</div>
-                                        <p><a href="https://www.zhihu.com">知乎入口</a></p>
-                                       
                                     </li>				
                                 </ul>
 
@@ -331,7 +330,7 @@
                                         <input type="submit" value="搜索" class="input2" />
                                     </form>
                                 </div>
-                                <div class="news-block">
+                                <div class="news-block" data-date="2024-05-02">
                                     <div class="inner-box">
                                         <div class="image">
                                             <img src="images/resource/blog-1.jpg" alt="">
@@ -341,19 +340,10 @@
                                                 </a>                                
                                             </div>
                                         </div>
-                                        <div class="date"><strong>02</strong> <br>05</div>
-                                        <div class="lower-content">
-                                         <li data-date="2024-05-02">
                                        
-                                        <span>2024-05-05 10:13</span>
-                                    </li>
-                                         
-                                            <h4><a href="blog-single.html">Let’s Talk About Design</a></h4>
-                                            <div class="post-meta">by admin  /  <span>Design</span></div>
-                                        </div>
                                     </div>
                                 </div>
-                                <div class="news-block">
+                                <div class="news-block" data-date="2024-05-04">
                                     <div class="inner-box">
                                         <div class="image">
                                             <img src="images/resource/blog-2.jpg" alt="">
@@ -363,14 +353,10 @@
                                                 </a>                                
                                             </div>
                                         </div>
-                                        <div class="date"><strong>04</strong> <br>五月</div>
-                                        <div class="lower-content">
-                                            <h4><a href="blog-single.html">Let’s Talk About Design</a></h4>
-                                            <div class="post-meta">by admin  /  <span>Design</span></div>
-                                        </div>
+                                        
                                     </div>
                                 </div>
-                                <div class="news-block">
+                                <div class="news-block" data-date="2024-05-06">
                                     <div class="inner-box">
                                         <div class="image">
                                             <img src="images/resource/blog-3.jpg" alt="">
@@ -380,14 +366,10 @@
                                                 </a>                                
                                             </div>
                                         </div>
-                                        <div class="date"><strong>06</strong> <br>五月</div>
-                                        <div class="lower-content">
-                                            <h4><a href="blog-single.html">Let’s Talk About Design</a></h4>
-                                            <div class="post-meta">by admin  /  <span>Design</span></div>
-                                        </div>
+                                       
                                     </div>
                                 </div>
-                                <div class="news-block">
+                                <div class="news-block" data-date="2024-05-06">
                                     <div class="inner-box">
                                         <div class="image">
                                             <img src="images/resource/blog-4.png" alt="">
@@ -512,6 +494,30 @@
 <script src="js/gmaps.js"></script>
 <script src="js/map-script.js"></script>
 <!--End Google Map APi-->
+
+<script>
+function searchByDate() {
+    var searchDate = document.getElementById('search-date').value;
+    var articleList = document.getElementById('article-list').getElementsByTagName('li');
+    var blogList = document.getElementsByClassName('news-block');
+
+    for (var i = 0; i < articleList.length; i++) {
+        if (articleList[i].getAttribute('data-date') === searchDate) {
+            articleList[i].style.display = 'block';
+        } else {
+            articleList[i].style.display = 'none';
+        }
+    }
+
+    for (var j = 0; j < blogList.length; j++) {
+        if (blogList[j].getAttribute('data-date') === searchDate) {
+            blogList[j].style.display = 'block';
+        } else {
+            blogList[j].style.display = 'none';
+        }
+    }
+}
+</script>
 
 </body>
 </html>
