@@ -16,8 +16,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <!--[if lt IE 9]><script src="js/html5shiv.js"></script><![endif]-->
 <!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
-</head>
-
+<html lang="en">
 <body>
 
 <div class="page-wrapper default-version">
@@ -286,9 +285,9 @@
                             <div class="card-inner">
                                 <h4 class="title">Artical share</h4>
                                 <div class="search">
-                                    <form action="javascript:void(0);" onsubmit="searchByDate()">
+                                    <form onsubmit="searchByDate('article', event)">
                                         <p>站内搜索</p>
-                                        <input type="date" id="search-date" name="search-date" class="input1" />
+                                        <input type="date" id="search-date-article" name="search-date" class="input1" />
                                         <input type="submit" value="搜索" class="input2">
                                     </form>
                                 </div>
@@ -320,74 +319,40 @@
                         <!-- end item -->
                     
                         <!-- card item -->
-                        <div class="card-blog card-item" id="blog" style="background-image:url(images/background/2.jpg)">
+                        <div class="card-services card-item" id="blog" style="background-image:url(images/background/2.jpg)">
                             <div class="card-inner">
-                                <h4 class="title">Blog share</h4>
+                                <h4 class="title">Image Share</h4>
                                 <div class="search">
-                                    <form action="javascript:void(0);" onsubmit="searchByDate()">
+                                    <form onsubmit="searchByDate('image', event)">
                                         <p>站内搜索</p>
-                                        <input type="date" id="search-date" name="search-date" class="input1" />
-                                        <input type="submit" value="搜索" class="input2" />
+                                        <input type="date" id="search-date-image" name="search-date" class="input1" />
+                                        <input type="submit" value="搜索" class="input2">
                                     </form>
                                 </div>
-                                <div class="news-block" data-date="2024-05-02">
-                                    <div class="inner-box">
-                                        <div class="image">
-                                            <img src="images/resource/blog-1.jpg" alt="">
-                                            <div class="overlay">
-                                                <a class="link-btn" href="blog-single.html">
-                                                    <i class="fa fa-link"></i>
-                                                </a>                                
-                                            </div>
-                                        </div>
-                                       
-                                    </div>
-                                </div>
-                                <div class="news-block" data-date="2024-05-03">
-                                    <div class="inner-box">
-                                        <div class="image">
-                                            <img src="images/resource/blog-2.jpg" alt="">
-                                            <div class="overlay">
-                                                <a class="link-btn" href="blog-single.html">
-                                                    <i class="fa fa-link"></i>
-                                                </a>                                
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-                                </div>
-                                <div class="news-block" data-date="2024-05-04">
-                                    <div class="inner-box">
-                                        <div class="image">
-                                            <img src="images/resource/blog-3.jpg" alt="">
-                                            <div class="overlay">
-                                                <a class="link-btn" href="blog-single.html">
-                                                    <i class="fa fa-link"></i>
-                                                </a>                                
-                                            </div>
-                                        </div>
-                                       
-                                    </div>
-                                </div>
-                                <div class="news-block" data-date="2024-05-05">
-                                    <div class="inner-box">
-                                        <div class="image">
-                                            <img src="images/resource/blog-4.png" alt="">
-                                            <div class="overlay">
-                                                <a class="link-btn" href="blog-single.html">
-                                                    <i class="fa fa-link"></i>
-                                                </a>                                
-                                            </div>
-                                        </div>
-                                        <div class="text">广告</div>
-                                        <div class="lower-content">
-                                            <h4><a href="blog-single.html"></a></h4>
-                                            <div class="text">想要美丽的图片，就来醒图~</div>
-                                        </div>
-                                    </div>
+                                <ul id="image-list">
+                                    <li data-date="2024-05-10">
+                                        <img src="images/resource/blog-1.jpg" alt="Image 1">
+                                        <span>2024-05-10 11:55</span>
+                                    </li>
+                                    <li data-date="2024-05-11">
+                                        <img src="images/resource/blog-2.jpg" alt="Image 2">
+                                        <span>2024-05-11 10:13</span>
+                                    </li>
+                                    <li data-date="2024-05-12">
+                                        <img src="images/resource/blog-3.jpg" alt="Image 3">
+                                        <span>2024-05-12 08:03</span>
+                                    </li>
+                                </ul>
+                                
+                                <div class="footer">
+                                    <p class="link">友情链接：<a href="https://www.douyin.com/user/MS4wLjABAAAAl0cS7tVK0WaSwQViM197g4XGQ5uUhY5Rx2Dp0BHTNKBuUGogXDs-NHlIKJjLpDvh" target="_blank">抖音用户界面</a></p>
+                                    <p class="info">想获取更多信息，请关注我的抖音</p>
                                 </div>
                             </div>
                         </div>
+                            
+                      
+
                         <!-- end item -->
                         <!-- card item -->
                         <div class="card-contact card-item" id="contact" style="background-image:url(images/background/2.jpg)">
@@ -496,28 +461,26 @@
 <!--End Google Map APi-->
 
 <script>
-function searchByDate() {
-    var searchDate = document.getElementById('search-date').value;
-    var articleList = document.getElementById('article-list').getElementsByTagName('li');
-    var blogList = document.getElementsByClassName('news-block');
-
-    for (var i = 0; i < articleList.length; i++) {
-        if (articleList[i].getAttribute('data-date') === searchDate) {
-            articleList[i].style.display = 'block';
-        } else {
-            articleList[i].style.display = 'none';
-        }
+    function searchByDate(type, event) {
+    event.preventDefault(); // 阻止表单默认提交行为
+    var searchDate = '';
+    var list = null;
+    if (type === 'article') {
+        searchDate = document.getElementById('search-date-article').value;
+        list = document.getElementById('article-list').getElementsByTagName('li');
+    } else if (type === 'image') {
+        searchDate = document.getElementById('search-date-image').value;
+        list = document.getElementById('image-list').getElementsByTagName('li');
     }
 
-    for (var j = 0; j < blogList.length; j++) {
-        if (blogList[j].getAttribute('data-date') === searchDate) {
-            blogList[j].style.display = 'block';
+    for (var i = 0; i < list.length; i++) {
+        if (list[i].getAttribute('data-date') === searchDate) {
+            list[i].style.display = 'block';
         } else {
-            blogList[j].style.display = 'none';
+            list[i].style.display = 'none';
         }
     }
 }
-</script>
 
-</body>
+</script>dy>
 </html>
